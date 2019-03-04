@@ -1,3 +1,4 @@
 *.o
-.geo.c.swp
-geo.c~
+*.swp
+*~
+geo
