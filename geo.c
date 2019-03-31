@@ -344,6 +344,10 @@ int main()
         puts(FI1);
         circle(r1);
     }
+    if (strncmp(P, FI1, 7) == 0) {
+        puts(FI1);
+        polygon(px1, py1, px2, py2, px3, py3, px4, py4);
+    }
 
     puts("\n");
     if (strncmp(T, FI2, 6) == 0) {
@@ -354,6 +358,10 @@ int main()
         puts(FI2);
         circle(r2);
     }
+    if (strncmp(P, FI2, 7) == 0) {
+        puts(FI2);
+        polygon(px5, py5, px6, py6, px7, py7, px8, py8);
+    }
 
     puts("\n");
     if (strncmp(T, FI3, 6) == 0) {
@@ -363,6 +371,10 @@ int main()
     if (strncmp(B, FI3, 6) == 0) {
         puts(FI3);
         circle(r3);
+    }
+    if (strncmp(P, FI3, 7) == 0) {
+        puts(FI2);
+        polygon(px9, py9, px10, py10, px11, py11, px12, py12);
     }
 
     return 0;
