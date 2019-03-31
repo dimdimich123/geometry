@@ -8,14 +8,14 @@
 #include <string.h>
 int main()
 {
-    char B[] = "circle", E[] = "exit", T[] = "triangle", P[] = "polygon";
+    char B[] = "circle", T[] = "triangle", P[] = "polygon";
     char FI1[100], FI2[100], FI3[245];
     int bb = 0;
-    int x1, u1, x2, u2, x3, u3, p0, r1, r2, r3, f, xt1, xt2, xt3, yt1, yt2, yt3,
-            xt4, xt5, xt6, yt4, yt5, yt6, xt7, xt8, xt9, yt7, yt8, yt9, px1,
-            py1, px2, py2, px3, py3, px4, py4, px5, py5, px6, py6, px7, py7,
-            px8, py8, px9, py9, px10, py10, px11, py11, px12, py12;
-    int flag, ps2 = 0, ps3 = 0, ps4;
+    int x1, u1, x2, u2, x3, u3, r1, r2, r3, xt1, xt2, xt3, yt1, yt2, yt3, xt4,
+            xt5, xt6, yt4, yt5, yt6, xt7, xt8, xt9, yt7, yt8, yt9, px1, py1,
+            px2, py2, px3, py3, px4, py4, px5, py5, px6, py6, px7, py7, px8,
+            py8, px9, py9, px10, py10, px11, py11, px12, py12;
+    int flag;
     bb = 1;
     while (1) {
         flag
