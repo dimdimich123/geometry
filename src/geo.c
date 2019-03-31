@@ -1,10 +1,10 @@
 #include "Str.h"
+#include "circle.h"
 #include "triangle.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-void circle(int f);
 void polygon(
         int& px1,
         int& py1,
@@ -14,16 +14,6 @@ void polygon(
         int& py3,
         int& px4,
         int& py4);
-
-void circle(int f)
-{
-    float ploshs, perims;
-    ploshs = 3.14 * f * f;
-    printf("plosh=%3.3f\n", ploshs);
-    perims = 2 * 3.14 * f;
-    printf("perim=%3.3f\n", perims);
-    return;
-}
 
 void polygon(
         int& px1,
