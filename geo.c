@@ -21,6 +21,15 @@ int Str(int& x1,
         int& py4);
 void circle(int f);
 void triangle(int xt1, int yt1, int xt2, int yt2, int xt3, int yt3);
+void polygon(
+        int& px1,
+        int& py1,
+        int& px2,
+        int& py2,
+        int& px3,
+        int& py3,
+        int& px4,
+        int& py4);
 const char B[] = "circle", E[] = "exit", T[] = "triangle", P[] = "polygon";
 char A[8], C[8], F[8], D[100], FI1[100], FI2[100], FI3[245], H[8], G[8], J[8],
         K[8], O[8];
@@ -48,6 +57,30 @@ void triangle(int xt1, int yt1, int xt2, int yt2, int xt3, int yt3)
     plosh = sqrt(p * (p - str1) * (p - str2) * (p - str3));
     printf("Plosh=%f\n", plosh);
     printf("Perim=%f\n", perim);
+    return;
+}
+
+void polygon(
+        int& px1,
+        int& py1,
+        int& px2,
+        int& py2,
+        int& px3,
+        int& py3,
+        int& px4,
+        int& py4)
+{
+    float ploshs, perims, str1, str2, str3, str4;
+    ploshs = abs((px1 * py2) + (px2 * py3) + (px3 * py4) + (px4 * py1)
+                 - (px2 * py1) - (px3 * py2) - (px4 * py3) - (px1 * py4))
+            / 2;
+    str1 = sqrt(pow(px2 - px1, 2) + pow(py2 - py1, 2));
+    str2 = sqrt(pow(px3 - px2, 2) + pow(py3 - py2, 2));
+    str3 = sqrt(pow(px4 - px3, 2) + pow(py4 - py3, 2));
+    str4 = sqrt(pow(px1 - px4, 2) + pow(py1 - py4, 2));
+    perims = str1 + str2 + str3 + str4;
+    printf("Plosh=%f\n", ploshs);
+    printf("Perim=%f\n", perims);
     return;
 }
 
