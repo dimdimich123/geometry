@@ -49,16 +49,19 @@ int Str(int& x1,
                         }
                         d++;
                     }
+                    A[d] = '\0';
                     d = 0;
                     for (i++; D[i] != ','; i++) {
                         C[d] = D[i];
                         d++;
                     }
+                    C[d] = '\0';
                     d = 0;
                     for (i++; D[i] != ')'; i++) {
                         F[d] = D[i];
                         d++;
                     }
+                    F[d] = '\0';
                     x1 = atoi(A);
                     u1 = atoi(C);
                     r1 = atoi(F);
@@ -79,31 +82,37 @@ int Str(int& x1,
                     }
                     d++;
                 }
+                A[d] = '\0';
                 d = 0;
                 for (i++; D[i] != ','; i++) {
                     C[d] = D[i];
                     d++;
                 }
+                C[d] = '\0';
                 d = 0;
                 for (i++; D[i] != ','; i++) {
                     F[d] = D[i];
                     d++;
                 }
+                F[d] = '\0';
                 d = 0;
                 for (i++; D[i] != ','; i++) {
                     H[d] = D[i];
                     d++;
                 }
+                H[d] = '\0';
                 d = 0;
                 for (i++; D[i] != ','; i++) {
                     G[d] = D[i];
                     d++;
                 }
+                G[d] = '\0';
                 d = 0;
                 for (i++; D[i] != ')'; i++) {
                     J[d] = D[i];
                     d++;
                 }
+                J[d] = '\0';
                 xt1 = atoi(A);
                 yt1 = atoi(C);
                 xt2 = atoi(F);
@@ -127,41 +136,49 @@ int Str(int& x1,
                 }
                 d++;
             }
+            A[d] = '\0';
             d = 0;
             for (i++; D[i] != ','; i++) {
                 C[d] = D[i];
                 d++;
             }
+            C[d] = '\0';
             d = 0;
             for (i++; D[i] != ','; i++) {
                 F[d] = D[i];
                 d++;
             }
+            F[d] = '\0';
             d = 0;
             for (i++; D[i] != ','; i++) {
                 H[d] = D[i];
                 d++;
             }
+            H[d] = '\0';
             d = 0;
             for (i++; D[i] != ','; i++) {
                 G[d] = D[i];
                 d++;
             }
+            G[d] = '\0';
             d = 0;
             for (i++; D[i] != ','; i++) {
                 J[d] = D[i];
                 d++;
             }
+            J[d] = '\0';
             d = 0;
             for (i++; D[i] != ','; i++) {
                 K[d] = D[i];
                 d++;
             }
+            K[d] = '\0';
             d = 0;
             for (i++; D[i] != ')'; i++) {
                 O[d] = D[i];
                 d++;
             }
+            O[d] = '\0';
 
             px1 = atoi(A);
             py1 = atoi(C);
