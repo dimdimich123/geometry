@@ -141,7 +141,7 @@ int main()
         circle(r3);
     }
     if (strncmp(P, FI3, 7) == 0) {
-        puts(FI2);
+        puts(FI3);
         polygon(px9, py9, px10, py10, px11, py11, px12, py12);
     }
 
