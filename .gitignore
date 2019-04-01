@@ -2,3 +2,6 @@
 *.swp
 *~
 geo
+bin/start
+bin/*.o
+bin/
