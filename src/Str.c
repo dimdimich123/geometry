@@ -191,5 +191,5 @@ int Str(int& x1,
         }
     else
         return 3;
-    return 0;
+    return 1;
 }
