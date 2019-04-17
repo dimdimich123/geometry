@@ -4,10 +4,10 @@ CC=g++ -Wall -Werror
 PP=~/geometry/src/
 SE=~/geometry/bin/
 
-all: $(SE)start
+all: start
 
-$(SE)start: $(SE)polygon.o $(SE)triangle.o $(SE)circle.o $(SE)Str.o $(SE)geo.o $(SE)SectPC.o $(SE)SectPT.o $(SE)SectPP.o $(SE)SectTT.o $(SE)SectCC.o $(SE)SectTC.o
-	$(CC) -o $(SE)start $(SE)polygon.o $(SE)triangle.o $(SE)circle.o $(SE)Str.o $(SE)geo.o $(SE)SectPC.o $(SE)SectPT.o $(SE)SectPP.o $(SE)SectTT.o $(SE)SectCC.o $(SE)SectTC.o
+start: $(SE)polygon.o $(SE)triangle.o $(SE)circle.o $(SE)Str.o $(SE)geo.o $(SE)SectPC.o $(SE)SectPT.o $(SE)SectPP.o $(SE)SectTT.o $(SE)SectCC.o $(SE)SectTC.o
+	$(CC) -o start $(SE)polygon.o $(SE)triangle.o $(SE)circle.o $(SE)Str.o $(SE)geo.o $(SE)SectPC.o $(SE)SectPT.o $(SE)SectPP.o $(SE)SectTT.o $(SE)SectCC.o $(SE)SectTC.o
 
 $(SE)polygon.o: $(PP)polygon.c
 	$(CC) -c -o $(SE)polygon.o $(PP)polygon.c
@@ -32,4 +32,4 @@ $(SE)SectTT.o: $(PP)SectTT.c
 $(SE)SectTC.o: $(PP)SectTC.c
 	$(CC) -c -o $(SE)SectTC.o $(PP)SectTC.c
 clean:
-	rm -rf $(SE)start $(SE)*.o
+	rm -rf start $(SE)*.o
