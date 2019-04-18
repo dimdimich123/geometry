@@ -8,7 +8,7 @@
 int main()
 {
     char B[] = "circle", T[] = "triangle", P[] = "polygon";
-    char FI1[100], FI2[100], FI3[245];
+    char FI1[100], FI2[100], FI3[245], D[100];
     int bb = 0;
     int x1, u1, x2, u2, x3, u3, r1, r2, r3, xt1, xt2, xt3, yt1, yt2, yt3, xt4,
             xt5, xt6, yt4, yt5, yt6, xt7, xt8, xt9, yt7, yt8, yt9, px1, py1,
@@ -16,7 +16,12 @@ int main()
             py8, px9, py9, px10, py10, px11, py11, px12, py12;
     int flag = 0, flag1 = 0, flag2 = 0, flag3 = 0, ps2 = 0, ps3 = 0, ps4 = 0;
     bb = 1;
+    printf("Enter a shape like this:\ntriangle (x1, y1, x2, y2, x3, "
+           "y3)\ncircle (x, y, r)\npolygon (x1, y1, x2, y2, x3, y3, x4, "
+           "y4)\n\n");
     while (1) {
+        printf("Input String: \n");
+        scanf("%s", D);
         flag
                 = Str(x1,
                       u1,
@@ -38,7 +43,8 @@ int main()
                       bb,
                       FI1,
                       FI2,
-                      FI3);
+                      FI3,
+                      D);
         if (flag)
             break;
         if (flag == 3)
@@ -46,6 +52,8 @@ int main()
     }
     bb = 2;
     while (1) {
+        printf("Input String: \n");
+        scanf("%s", D);
         flag
                 = Str(x2,
                       u2,
@@ -67,7 +75,8 @@ int main()
                       bb,
                       FI1,
                       FI2,
-                      FI3);
+                      FI3,
+                      D);
         if (flag)
             break;
         if (flag == 3)
@@ -75,6 +84,8 @@ int main()
     }
     bb = 3;
     while (1) {
+        printf("Input String: \n");
+        scanf("%s", D);
         flag
                 = Str(x3,
                       u3,
@@ -96,7 +107,8 @@ int main()
                       bb,
                       FI1,
                       FI2,
-                      FI3);
+                      FI3,
+                      D);
         if (flag)
             break;
         if (flag == 3)

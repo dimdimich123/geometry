@@ -5,6 +5,8 @@
 int SectCC(int x1, int u1, int r1, int x2, int u2, int r2)
 {
     float nm;
+    if (x1 == x2 && u1 == u2 && r1 == r2)
+        return 0;
     nm = sqrt(pow(x2 - x1, 2) + pow(u2 - u1, 2));
     if (nm <= r1 + r2)
         return 1;
@@ -41,7 +43,7 @@ int SectPC(
     rast4 = abs(
             ((py4 - py3) * x1 + (px3 - px4) * u1 + (px4 * py3 - px3 * py4))
             / sqrt(pow(px3 - px4, 2) + pow(py3 - py4, 2)));
-    if (OA < r1 && OB < r1 && OC < r1 && OD < r1)
+    if (OC <= r1 && OA <= r1 && OB <= r1 && OD <= r1)
         return 0;
     if (((OC >= r1 && OB >= r1 && rast3 >= r1)
          && (OC >= r1 && OD >= r1 && rast4 >= r1)
@@ -79,11 +81,11 @@ int SectPP(
     if ((0 <= ua && ua <= 1) && (0 <= ub && ub <= 1))
         return 1;
     else {
-        ua = (float)((px6 - px8) * (py1 - py8) - (py6 - py8) * (px1 - px8))
-                / ((py6 - py8) * (px2 - px1)
-                   - (px6 - px8) * (py2 - py1)); // 1-2
-        ub = (float)((px2 - px1) * (py1 - py8) - (py2 - py1) * (px1 - px8))
-                / ((py6 - py8) * (px2 - px1) - (px6 - px8) * (py2 - py1));
+        ua = (float)((px6 - px5) * (py1 - py5) - (py6 - py5) * (px1 - px5))
+                / ((py6 - py5) * (px2 - px1)
+                   - (px6 - px5) * (py2 - py1)); // 1-2
+        ub = (float)((px2 - px1) * (py1 - py5) - (py2 - py1) * (px1 - px5))
+                / ((py6 - py5) * (px2 - px1) - (px6 - px5) * (py2 - py1));
         if ((0 <= ua && ua <= 1) && (0 <= ub && ub <= 1))
             return 1;
         else {
@@ -106,14 +108,14 @@ int SectPP(
                 if ((0 <= ua && ua <= 1) && (0 <= ub && ub <= 1))
                     return 1;
                 else {
-                    ua = (float)((px6 - px8) * (py1 - py8)
-                                 - (py6 - py8) * (px1 - px8))
-                            / ((py6 - py8) * (px4 - px1)
-                               - (px6 - px8) * (py4 - py1)); // 2-2
-                    ub = (float)((px4 - px1) * (py1 - py8)
-                                 - (py4 - py1) * (px1 - px8))
-                            / ((py6 - py8) * (px4 - px1)
-                               - (px6 - px8) * (py4 - py1));
+                    ua = (float)((px6 - px5) * (py1 - py5)
+                                 - (py6 - py5) * (px1 - px5))
+                            / ((py6 - py5) * (px4 - px1)
+                               - (px6 - px5) * (py4 - py1)); // 2-2
+                    ub = (float)((px4 - px1) * (py1 - py5)
+                                 - (py4 - py1) * (px1 - px5))
+                            / ((py6 - py5) * (px4 - px1)
+                               - (px6 - px5) * (py4 - py1));
                     if ((0 <= ua && ua <= 1) && (0 <= ub && ub <= 1))
                         return 1;
                     else {
@@ -139,14 +141,14 @@ int SectPP(
                             if ((0 <= ua && ua <= 1) && (0 <= ub && ub <= 1))
                                 return 1;
                             else {
-                                ua = (float)((px6 - px8) * (py3 - py8)
-                                             - (py6 - py8) * (px3 - px8))
-                                        / ((py6 - py8) * (px2 - px3)
-                                           - (px6 - px8) * (py2 - py3)); // 3-2
-                                ub = (float)((px2 - px3) * (py3 - py8)
-                                             - (py2 - py3) * (px3 - px8))
-                                        / ((py6 - py8) * (px2 - px3)
-                                           - (px6 - px8) * (py2 - py3));
+                                ua = (float)((px6 - px5) * (py3 - py5)
+                                             - (py6 - py5) * (px3 - px5))
+                                        / ((py6 - py5) * (px2 - px3)
+                                           - (px6 - px5) * (py2 - py3)); // 3-2
+                                ub = (float)((px2 - px3) * (py3 - py5)
+                                             - (py2 - py3) * (px3 - px5))
+                                        / ((py6 - py5) * (px2 - px3)
+                                           - (px6 - px5) * (py2 - py3));
                                 if ((0 <= ua && ua <= 1)
                                     && (0 <= ub && ub <= 1))
                                     return 1;
@@ -164,50 +166,50 @@ int SectPP(
                                         && (0 <= ub && ub <= 1))
                                         return 1;
                                     else {
-                                        ua = (float)((px5 - px7) * (py1 - py7)
-                                                     - (py5 - py7)
+                                        ua = (float)((px8 - px7) * (py1 - py7)
+                                                     - (py8 - py7)
                                                              * (px1 - px7))
-                                                / ((py5 - py7) * (px2 - px1)
-                                                   - (px5 - px7)
+                                                / ((py8 - py7) * (px2 - px1)
+                                                   - (px8 - px7)
                                                            * (py2
                                                               - py1)); // 1-4
                                         ub = (float)((px2 - px1) * (py1 - py7)
                                                      - (py2 - py1)
                                                              * (px1 - px7))
-                                                / ((py5 - py7) * (px2 - px1)
-                                                   - (px5 - px7) * (py2 - py1));
+                                                / ((py8 - py7) * (px2 - px1)
+                                                   - (px8 - px7) * (py2 - py1));
                                         if ((0 <= ua && ua <= 1)
                                             && (0 <= ub && ub <= 1))
                                             return 1;
                                         else {
-                                            ua = (float)((px5 - px7)
+                                            ua = (float)((px8 - px7)
                                                                  * (py1 - py7)
-                                                         - (py5 - py7)
+                                                         - (py8 - py7)
                                                                  * (px1 - px7))
-                                                    / ((py5 - py7) * (px4 - px1)
-                                                       - (px5 - px7)
+                                                    / ((py8 - py7) * (px4 - px1)
+                                                       - (px8 - px7)
                                                                * (py4
                                                                   - py1)); // 2-4
                                             ub = (float)((px4 - px1)
                                                                  * (py1 - py7)
                                                          - (py4 - py1)
                                                                  * (px1 - px7))
-                                                    / ((py5 - py7) * (px4 - px1)
-                                                       - (px5 - px7)
+                                                    / ((py8 - py7) * (px4 - px1)
+                                                       - (px8 - px7)
                                                                * (py4 - py1));
                                             if ((0 <= ua && ua <= 1)
                                                 && (0 <= ub && ub <= 1))
                                                 return 1;
                                             else {
-                                                ua = (float)((px5 - px7)
+                                                ua = (float)((px8 - px7)
                                                                      * (py3
                                                                         - py7)
-                                                             - (py5 - py7)
+                                                             - (py8 - py7)
                                                                      * (px3
                                                                         - px7))
-                                                        / ((py5 - py7)
+                                                        / ((py8 - py7)
                                                                    * (px2 - px3)
-                                                           - (px5 - px7)
+                                                           - (px8 - px7)
                                                                    * (py2
                                                                       - py3)); // 3-4
                                                 ub = (float)((px2 - px3)
@@ -216,9 +218,9 @@ int SectPP(
                                                              - (py2 - py3)
                                                                      * (px3
                                                                         - px7))
-                                                        / ((py5 - py7)
+                                                        / ((py8 - py7)
                                                                    * (px2 - px3)
-                                                           - (px5 - px7)
+                                                           - (px8 - px7)
                                                                    * (py2
                                                                       - py3));
                                                 if ((0 <= ua && ua <= 1)
@@ -253,30 +255,30 @@ int SectPP(
                                                         && (0 <= ub && ub <= 1))
                                                         return 1;
                                                     else {
-                                                        ua = (float)((px6 - px8)
+                                                        ua = (float)((px6 - px5)
                                                                              * (py3
-                                                                                - py8)
+                                                                                - py5)
                                                                      - (py6
-                                                                        - py8)
+                                                                        - py5)
                                                                              * (px3
-                                                                                - px8))
-                                                                / ((py6 - py8)
+                                                                                - px5))
+                                                                / ((py6 - py5)
                                                                            * (px4
                                                                               - px3)
-                                                                   - (px6 - px8)
+                                                                   - (px6 - px5)
                                                                            * (py4
                                                                               - py3)); // 4-2
                                                         ub = (float)((px4 - px3)
                                                                              * (py3
-                                                                                - py8)
+                                                                                - py5)
                                                                      - (py4
                                                                         - py3)
                                                                              * (px3
-                                                                                - px8))
-                                                                / ((py6 - py8)
+                                                                                - px5))
+                                                                / ((py6 - py5)
                                                                            * (px4
                                                                               - px3)
-                                                                   - (px6 - px8)
+                                                                   - (px6 - px5)
                                                                            * (py4
                                                                               - py3));
                                                         if ((0 <= ua && ua <= 1)
@@ -322,19 +324,19 @@ int SectPP(
                                                                     && ub <= 1))
                                                                 return 1;
                                                             else {
-                                                                ua = (float)((px5
+                                                                ua = (float)((px8
                                                                               - px7)
                                                                                      * (py3
                                                                                         - py7)
-                                                                             - (py5
+                                                                             - (py8
                                                                                 - py7)
                                                                                      * (px3
                                                                                         - px7))
-                                                                        / ((py5
+                                                                        / ((py8
                                                                             - py7)
                                                                                    * (px4
                                                                                       - px3)
-                                                                           - (px5
+                                                                           - (px8
                                                                               - px7)
                                                                                    * (py4
                                                                                       - py3)); // 4-4
@@ -346,11 +348,11 @@ int SectPP(
                                                                                 - py3)
                                                                                      * (px3
                                                                                         - px7))
-                                                                        / ((py5
+                                                                        / ((py8
                                                                             - py7)
                                                                                    * (px4
                                                                                       - px3)
-                                                                           - (px5
+                                                                           - (px8
                                                                               - px7)
                                                                                    * (py4
                                                                                       - py3));
@@ -401,11 +403,12 @@ int SectPT(
     if ((0 <= ua && ua <= 1) && (0 <= ub && ub <= 1))
         return 1;
     else {
-        ua = (float)((px6 - px4) * (yt1 - py4) - (py6 - py4) * (xt1 - px4))
-                / ((py6 - py4) * (xt2 - xt1)
-                   - (px6 - px4) * (yt2 - yt1)); // 1-2
-        ub = (float)((xt2 - xt1) * (yt1 - py4) - (yt2 - yt1) * (xt1 - px4))
-                / ((py6 - py4) * (xt2 - xt1) - (px6 - px4) * (yt2 - yt1));
+        ua = (float)((px6 - px5) * (yt1 - py5) - (py6 - py5) * (xt1 - px5))
+                / ((py6 - py5) * (xt2 - xt1)
+                   - (px6 - px5) * (yt2 - yt1)); // 1-2
+        ub = (float)((xt2 - xt1) * (yt1 - py5) - (yt2 - yt1) * (xt1 - px5))
+                / ((py6 - py5) * (xt2 - xt1) - (px6 - px5) * (yt2 - yt1));
+        ;
         if ((0 <= ua && ua <= 1) && (0 <= ub && ub <= 1))
             return 1;
         else {
@@ -428,14 +431,14 @@ int SectPT(
                 if ((0 <= ua && ua <= 1) && (0 <= ub && ub <= 1))
                     return 1;
                 else {
-                    ua = (float)((px6 - px4) * (yt1 - py4)
-                                 - (py6 - py4) * (xt1 - px4))
-                            / ((py6 - py4) * (xt3 - xt1)
-                               - (px6 - px4) * (yt3 - yt1)); // 2-2
-                    ub = (float)((xt3 - xt1) * (yt1 - py4)
-                                 - (yt3 - yt1) * (xt1 - px4))
-                            / ((py6 - py4) * (xt3 - xt1)
-                               - (px6 - px4) * (yt3 - yt1));
+                    ua = (float)((px6 - px5) * (yt1 - py5)
+                                 - (py6 - py5) * (xt1 - px5))
+                            / ((py6 - py5) * (xt3 - xt1)
+                               - (px6 - px5) * (yt3 - yt1)); // 2-2
+                    ub = (float)((xt3 - xt1) * (yt1 - py5)
+                                 - (yt3 - yt1) * (xt1 - px5))
+                            / ((py6 - py5) * (xt3 - xt1)
+                               - (px6 - px5) * (yt3 - yt1));
                     if ((0 <= ua && ua <= 1) && (0 <= ub && ub <= 1))
                         return 1;
                     else {
@@ -461,14 +464,14 @@ int SectPT(
                             if ((0 <= ua && ua <= 1) && (0 <= ub && ub <= 1))
                                 return 1;
                             else {
-                                ua = (float)((px6 - px4) * (yt3 - py4)
-                                             - (py6 - py4) * (xt3 - px4))
-                                        / ((py6 - py4) * (xt2 - xt3)
-                                           - (px6 - px4) * (yt2 - yt3)); // 3-2
-                                ub = (float)((xt2 - xt3) * (yt3 - py4)
-                                             - (yt2 - yt3) * (xt3 - px4))
-                                        / ((py6 - py4) * (xt2 - xt3)
-                                           - (px6 - px4) * (yt2 - yt3));
+                                ua = (float)((px6 - px5) * (yt3 - py5)
+                                             - (py6 - py5) * (xt3 - px5))
+                                        / ((py6 - py5) * (xt2 - xt3)
+                                           - (px6 - px5) * (yt2 - yt3)); // 3-2
+                                ub = (float)((xt2 - xt3) * (yt3 - py5)
+                                             - (yt2 - yt3) * (xt3 - px5))
+                                        / ((py6 - py5) * (xt2 - xt3)
+                                           - (px6 - px5) * (yt2 - yt3));
                                 if ((0 <= ua && ua <= 1)
                                     && (0 <= ub && ub <= 1))
                                     return 1;
@@ -486,50 +489,50 @@ int SectPT(
                                         && (0 <= ub && ub <= 1))
                                         return 1;
                                     else {
-                                        ua = (float)((px5 - px7) * (yt1 - py7)
-                                                     - (py5 - py7)
+                                        ua = (float)((px4 - px7) * (yt1 - py7)
+                                                     - (py4 - py7)
                                                              * (xt1 - px7))
-                                                / ((py5 - py7) * (xt2 - xt1)
-                                                   - (px5 - px7)
+                                                / ((py4 - py7) * (xt2 - xt1)
+                                                   - (px4 - px7)
                                                            * (yt2
                                                               - yt1)); // 1-4
                                         ub = (float)((xt2 - xt1) * (yt1 - py7)
                                                      - (yt2 - yt1)
                                                              * (xt1 - px7))
-                                                / ((py5 - py7) * (xt2 - xt1)
-                                                   - (px5 - px7) * (yt2 - yt1));
+                                                / ((py4 - py7) * (xt2 - xt1)
+                                                   - (px4 - px7) * (yt2 - yt1));
                                         if ((0 <= ua && ua <= 1)
                                             && (0 <= ub && ub <= 1))
                                             return 1;
                                         else {
-                                            ua = (float)((px5 - px7)
+                                            ua = (float)((px4 - px7)
                                                                  * (yt1 - py7)
-                                                         - (py5 - py7)
+                                                         - (py4 - py7)
                                                                  * (xt1 - px7))
-                                                    / ((py5 - py7) * (xt3 - xt1)
-                                                       - (px5 - px7)
+                                                    / ((py4 - py7) * (xt3 - xt1)
+                                                       - (px4 - px7)
                                                                * (yt3
                                                                   - yt1)); // 2-4
                                             ub = (float)((xt3 - xt1)
                                                                  * (yt1 - py7)
                                                          - (yt3 - yt1)
                                                                  * (xt1 - px7))
-                                                    / ((py5 - py7) * (xt3 - xt1)
-                                                       - (px5 - px7)
+                                                    / ((py4 - py7) * (xt3 - xt1)
+                                                       - (px4 - px7)
                                                                * (yt3 - yt1));
                                             if ((0 <= ua && ua <= 1)
                                                 && (0 <= ub && ub <= 1))
                                                 return 1;
                                             else {
-                                                ua = (float)((px5 - px7)
+                                                ua = (float)((px4 - px7)
                                                                      * (yt3
                                                                         - py7)
-                                                             - (py5 - py7)
+                                                             - (py4 - py7)
                                                                      * (xt3
                                                                         - px7))
-                                                        / ((py5 - py7)
+                                                        / ((py4 - py7)
                                                                    * (xt2 - xt3)
-                                                           - (px5 - px7)
+                                                           - (px4 - px7)
                                                                    * (yt2
                                                                       - yt3)); // 3-4
                                                 ub = (float)((xt2 - xt3)
@@ -538,9 +541,9 @@ int SectPT(
                                                              - (yt2 - yt3)
                                                                      * (xt3
                                                                         - px7))
-                                                        / ((py5 - py7)
+                                                        / ((py4 - py7)
                                                                    * (xt2 - xt3)
-                                                           - (px5 - px7)
+                                                           - (px4 - px7)
                                                                    * (yt2
                                                                       - yt3));
                                                 if ((0 <= ua && ua <= 1)
@@ -584,6 +587,8 @@ int SectTC(
     rast3 = abs(
             ((yt3 - yt2) * x1 + (xt2 - xt3) * u1 + (xt3 * yt2 - xt2 * yt3))
             / sqrt(pow(xt2 - xt3, 2) + pow(yt2 - yt3, 2)));
+    if (OC <= r1 && OA <= r1 && OB <= r1)
+        return 0;
     if (((OC >= r1 && OB >= r1 && rast3 >= r1)
          && (OA >= r1 && OC >= r1 && rast2 >= r1)
          && (OA >= r1 && OB >= r1 && rast1 >= r1))

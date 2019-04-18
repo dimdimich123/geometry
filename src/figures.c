@@ -5,9 +5,9 @@ void circle(int f)
 {
     float ploshs, perims;
     ploshs = 3.14 * f * f;
-    printf("Plosh=%3.3f\n", ploshs);
+    printf("Plosh=%.2f\n", ploshs);
     perims = 2 * 3.14 * f;
-    printf("Perim=%3.3f\n", perims);
+    printf("Perim=%.2f\n", perims);
     return;
 }
 
@@ -30,8 +30,8 @@ void polygon(
     str3 = sqrt(pow(px4 - px3, 2) + pow(py4 - py3, 2));
     str4 = sqrt(pow(px1 - px4, 2) + pow(py1 - py4, 2));
     perims = str1 + str2 + str3 + str4;
-    printf("Plosh=%f\n", ploshs);
-    printf("Perim=%f\n", perims);
+    printf("Plosh=%.2f\n", ploshs);
+    printf("Perim=%.2f\n", perims);
     return;
 }
 
@@ -44,7 +44,7 @@ void triangle(int xt1, int yt1, int xt2, int yt2, int xt3, int yt3)
     p = (str1 + str2 + str3) / 2;
     perim = str1 + str2 + str3;
     plosh = sqrt(p * (p - str1) * (p - str2) * (p - str3));
-    printf("Plosh=%f\n", plosh);
-    printf("Perim=%f\n", perim);
+    printf("Plosh=%.2f\n", plosh);
+    printf("Perim=%.2f\n", perim);
     return;
 }
