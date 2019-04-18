@@ -1,35 +1,20 @@
-.PHONY: all clean install uninstall
-
 CC=g++ -Wall -Werror
-PP=~/geometry/src/
-SE=~/geometry/bin/
+PP=src/
+SE=bin/
 
 all: start
 
-start: $(SE)polygon.o $(SE)triangle.o $(SE)circle.o $(SE)Str.o $(SE)geo.o $(SE)SectPC.o $(SE)SectPT.o $(SE)SectPP.o $(SE)SectTT.o $(SE)SectCC.o $(SE)SectTC.o
-	$(CC) -o start $(SE)polygon.o $(SE)triangle.o $(SE)circle.o $(SE)Str.o $(SE)geo.o $(SE)SectPC.o $(SE)SectPT.o $(SE)SectPP.o $(SE)SectTT.o $(SE)SectCC.o $(SE)SectTC.o
-
-$(SE)polygon.o: $(PP)polygon.c
-	$(CC) -c -o $(SE)polygon.o $(PP)polygon.c
-$(SE)triangle.o: $(PP)triangle.c
-	$(CC) -c -o $(SE)triangle.o $(PP)triangle.c
-$(SE)circle.o: $(PP)circle.c
-	$(CC) -c -o $(SE)circle.o $(PP)circle.c
-$(SE)Str.o: $(PP)Str.c
-	$(CC) -c -o $(SE)Str.o $(PP)Str.c
+start: $(SE)figures.o $(SE)geo.o $(SE)intersect.o $(SE)Str.o
+	$(CC) $(SE)figures.o $(SE)geo.o $(SE)intersect.o $(SE)Str.o -o start
+$(SE)figures.o: $(PP)figures.c
+	$(CC) -c -o $(SE)figures.o $(PP)figures.c
 $(SE)geo.o: $(PP)geo.c
 	$(CC) -c -o $(SE)geo.o $(PP)geo.c
-$(SE)SectPC.o: $(PP)SectPC.c
-	$(CC) -c -o $(SE)SectPC.o $(PP)SectPC.c
-$(SE)SectPP.o: $(PP)SectPP.c
-	$(CC) -c -o $(SE)SectPP.o $(PP)SectPP.c
-$(SE)SectPT.o: $(PP)SectPT.c
-	$(CC) -c -o $(SE)SectPT.o $(PP)SectPT.c
-$(SE)SectCC.o: $(PP)SectCC.c
-	$(CC) -c -o $(SE)SectCC.o $(PP)SectCC.c
-$(SE)SectTT.o: $(PP)SectTT.c
-	$(CC) -c -o $(SE)SectTT.o $(PP)SectTT.c
-$(SE)SectTC.o: $(PP)SectTC.c
-	$(CC) -c -o $(SE)SectTC.o $(PP)SectTC.c
+$(SE)intersect.o: $(PP)intersect.c
+	$(CC) -c -o $(SE)intersect.o $(PP)intersect.c
+$(SE)Str.o: $(PP)Str.c
+	$(CC) -c -o $(SE)Str.o $(PP)Str.c
 clean:
 	rm -rf start $(SE)*.o
+
+.PHONY: all clean install uninstall
