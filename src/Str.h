@@ -20,5 +20,6 @@ int Str(int& x1,
         int& bb,
         char FI1[],
         char FI2[],
-        char FI3[]);
+        char FI3[],
+        char D[]);
 #endif

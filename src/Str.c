@@ -1,7 +1,28 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-int Str(int &x1,int& u1,int& r1,int& xt1, int& yt1,int& xt2,int& yt2,int& xt3,int& yt3,int& px1,int& py1,int& px2,int& py2,int& px3,int& py3,int& px4, int& py4,int& bb,char FI1[],char FI2[],char FI3[], char D[])
+int Str(int& x1,
+        int& u1,
+        int& r1,
+        int& xt1,
+        int& yt1,
+        int& xt2,
+        int& yt2,
+        int& xt3,
+        int& yt3,
+        int& px1,
+        int& py1,
+        int& px2,
+        int& py2,
+        int& px3,
+        int& py3,
+        int& px4,
+        int& py4,
+        int& bb,
+        char FI1[],
+        char FI2[],
+        char FI3[],
+        char D[])
 {
     char B[] = "circle", E[] = "exit", T[] = "triangle", P[] = "polygon";
     char A[8], C[8], F[8], H[8], G[8], J[8], K[8], O[8];
@@ -43,10 +64,10 @@ int Str(int &x1,int& u1,int& r1,int& xt1, int& yt1,int& xt2,int& yt2,int& xt3,in
                     x1 = atoi(A);
                     u1 = atoi(C);
                     r1 = atoi(F);
-                    if(r1<=0){
-                    	printf("invalid input format\n");
-                    	return 0;
-					}
+                    if (r1 <= 0) {
+                        printf("invalid input format\n");
+                        return 0;
+                    }
                     return 1;
                 }
             else {
@@ -101,10 +122,12 @@ int Str(int &x1,int& u1,int& r1,int& xt1, int& yt1,int& xt2,int& yt2,int& xt3,in
                 yt2 = atoi(H);
                 xt3 = atoi(G);
                 yt3 = atoi(J);
-                if((xt1==xt2&&yt1==yt2)==1||(xt1==xt3&&yt1==yt3)==1||(xt3==xt2&&yt3==yt2)==1){
-                	printf("invalid input format\n");
-                	return 0;
-				}
+                if ((xt1 == xt2 && yt1 == yt2) == 1
+                    || (xt1 == xt3 && yt1 == yt3) == 1
+                    || (xt3 == xt2 && yt3 == yt2) == 1) {
+                    printf("invalid input format\n");
+                    return 0;
+                }
                 return 1;
             }
         else {
@@ -174,11 +197,16 @@ int Str(int &x1,int& u1,int& r1,int& xt1, int& yt1,int& xt2,int& yt2,int& xt3,in
             py3 = atoi(J);
             px4 = atoi(K);
             py4 = atoi(O);
-            if((px1==px2&&py1==py2)==1||(px1==px3&&py1==py3)==1||(px1==px4&&py1==py4)==1||(px3==px2&&py3==py2)==1||(px4==px2&&py4==py2)==1||(px3==px4&&py3==py4)==1){
-                	printf("invalid input format\n");
-                	return 0;
-				}
-			return 1; 
+            if ((px1 == px2 && py1 == py2) == 1
+                || (px1 == px3 && py1 == py3) == 1
+                || (px1 == px4 && py1 == py4) == 1
+                || (px3 == px2 && py3 == py2) == 1
+                || (px4 == px2 && py4 == py2) == 1
+                || (px3 == px4 && py3 == py4) == 1) {
+                printf("invalid input format\n");
+                return 0;
+            }
+            return 1;
         }
     else
         return 3;
