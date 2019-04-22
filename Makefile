@@ -2,6 +2,10 @@ CC=g++ -Wall -Werror
 PP=src/
 SE=bin/
 
+reps:
+	mkdir -p build
+	mkdir -p bin
+
 all: start
 
 start: $(SE)figures.o $(SE)geo.o $(SE)intersect.o $(SE)Str.o
@@ -16,5 +20,7 @@ $(SE)Str.o: $(PP)Str.c
 	$(CC) -c -o $(SE)Str.o $(PP)Str.c
 clean:
 	rm -rf start $(SE)*.o
+	rm -R build
+	rm -R bin
 
-.PHONY: all clean install uninstall
+.PHONY: all clean reps
