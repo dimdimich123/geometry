@@ -51,12 +51,16 @@ int Str(int& x1,
                     A[d] = '\0';
                     d = 0;
                     for (i++; D[i] != ','; i++) {
+                        if (D[i] == ')')
+                            return 0;
                         C[d] = D[i];
                         d++;
                     }
                     C[d] = '\0';
                     d = 0;
                     for (i++; D[i] != ')'; i++) {
+                        if (D[i] == ')')
+                            return 0;
                         F[d] = D[i];
                         d++;
                     }
@@ -88,30 +92,40 @@ int Str(int& x1,
                 A[d] = '\0';
                 d = 0;
                 for (i++; D[i] != ','; i++) {
+                    if (D[i] == ')')
+                        return 0;
                     C[d] = D[i];
                     d++;
                 }
                 C[d] = '\0';
                 d = 0;
                 for (i++; D[i] != ','; i++) {
+                    if (D[i] == ')')
+                        return 0;
                     F[d] = D[i];
                     d++;
                 }
                 F[d] = '\0';
                 d = 0;
                 for (i++; D[i] != ','; i++) {
+                    if (D[i] == ')')
+                        return 0;
                     H[d] = D[i];
                     d++;
                 }
                 H[d] = '\0';
                 d = 0;
                 for (i++; D[i] != ','; i++) {
+                    if (D[i] == ')')
+                        return 0;
                     G[d] = D[i];
                     d++;
                 }
                 G[d] = '\0';
                 d = 0;
                 for (i++; D[i] != ')'; i++) {
+                    if (D[i] == ')')
+                        return 0;
                     J[d] = D[i];
                     d++;
                 }
@@ -148,42 +162,56 @@ int Str(int& x1,
             A[d] = '\0';
             d = 0;
             for (i++; D[i] != ','; i++) {
+                if (D[i] == ')')
+                    return 0;
                 C[d] = D[i];
                 d++;
             }
             C[d] = '\0';
             d = 0;
             for (i++; D[i] != ','; i++) {
+                if (D[i] == ')')
+                    return 0;
                 F[d] = D[i];
                 d++;
             }
             F[d] = '\0';
             d = 0;
             for (i++; D[i] != ','; i++) {
+                if (D[i] == ')')
+                    return 0;
                 H[d] = D[i];
                 d++;
             }
             H[d] = '\0';
             d = 0;
             for (i++; D[i] != ','; i++) {
+                if (D[i] == ')')
+                    return 0;
                 G[d] = D[i];
                 d++;
             }
             G[d] = '\0';
             d = 0;
             for (i++; D[i] != ','; i++) {
+                if (D[i] == ')')
+                    return 0;
                 J[d] = D[i];
                 d++;
             }
             J[d] = '\0';
             d = 0;
             for (i++; D[i] != ','; i++) {
+                if (D[i] == ')')
+                    return 0;
                 K[d] = D[i];
                 d++;
             }
             K[d] = '\0';
             d = 0;
             for (i++; D[i] != ')'; i++) {
+                if (D[i] == ')')
+                    return 0;
                 O[d] = D[i];
                 d++;
             }
