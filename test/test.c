@@ -1,6 +1,3 @@
-/*x=Str(x1,u1,r1,xt1,yt1,xt2,yt2,xt3,yt3,px1,py1,px2,py2,px3,py3,px4,py4,bb,FI1,FI2,FI3,D);
-x=Str(x2,u2,r2,xt4,yt4,xt5,yt5,xt6,yt6,px5,py5,px6,py6,px7,py7,px8,py8,bb,FI1,FI2,FI3,D);
-x=Str(x3,u3,r3,xt7,yt7,xt8,yt8,xt9,yt9,px9,py9,px10,py10,px11,py11,px12,py12,bb,FI1,FI2,FI3,D);*/
 #include "ctest.h"
 #include <math.h>
 #include <stdio.h>
@@ -730,8 +727,8 @@ int SectCC(int x1, int u1, int r1, int x2, int u2, int r2)
 int Str(char D[])
 {
     int bb = 0;
-    int x1, u1, r1, xt1, xt2, xt3, yt1, yt2, yt3, px1, py1,
-            px2, py2, px3, py3, px4, py4;
+    int x1, u1, r1, xt1, xt2, xt3, yt1, yt2, yt3, px1, py1, px2, py2, px3, py3,
+            px4, py4;
     char FI1[100], FI2[100], FI3[245];
     char B[] = "circle", E[] = "exit", T[] = "triangle", P[] = "polygon";
     char A[8], C[8], F[8], H[8], G[8], J[8], K[8], O[8];
@@ -1205,87 +1202,87 @@ CTEST(chartoint, Str)
 
     strcpy(D, "circle(555,-222,0)");
     a = 0;
-x = Str(D);
+    x = Str(D);
     ASSERT_EQUAL(x, a);
 
     strcpy(D, "aafsdfwefw(-6,-6,15)");
     a = 0;
-x = Str(D);
+    x = Str(D);
     ASSERT_EQUAL(x, a);
 
     strcpy(D, "circle()");
     a = 0;
-x = Str(D);
+    x = Str(D);
     ASSERT_EQUAL(x, a);
 
-strcpy(D, "exit");
+    strcpy(D, "exit");
     a = 3;
-x = Str(D);
+    x = Str(D);
     ASSERT_EQUAL(a, x);
 
-strcpy(D, "exit1s1");
+    strcpy(D, "exit1s1");
     a = 0;
-x = Str(D);
+    x = Str(D);
     ASSERT_EQUAL(a, x);
 
     strcpy(D, "triangle(1,1,1,1,2,2)");
     a = 0;
-x = Str(D);
+    x = Str(D);
     ASSERT_EQUAL(x, a);
 
     strcpy(D, "triangle(1,1,1,1,2,2)");
     a = 0;
-x = Str(D);
+    x = Str(D);
     ASSERT_EQUAL(x, a);
 
     strcpy(D, "triangle(1,1,2,2,2,2)");
     a = 0;
-x = Str(D);
+    x = Str(D);
     ASSERT_EQUAL(x, a);
 
     strcpy(D, "triangle(0,0,0,5,5,0)");
     a = 10;
-x = Str(D);
+    x = Str(D);
     ASSERT_EQUAL(x, a);
 
     strcpy(D, "triangle(-10,-10,0,5,-7,15)");
     a = -7;
- x = Str(D);
+    x = Str(D);
     ASSERT_EQUAL(x, a);
 
     strcpy(D, "triangle()");
     a = 0;
-x = Str(D);
+    x = Str(D);
     ASSERT_EQUAL(x, a);
 
     strcpy(D, "triangle(5,5,6,6)");
     a = 0;
-x = Str(D);
+    x = Str(D);
     ASSERT_EQUAL(x, a);
 
     strcpy(D, "triangle(5,6,6,7,8)");
     a = 0;
-x = Str(D);
+    x = Str(D);
     ASSERT_EQUAL(x, a);
 
     strcpy(D, "polygon(0,0,0,5,5,5,5,0)");
     a = 20;
-x = Str(D);
+    x = Str(D);
     ASSERT_EQUAL(x, a);
 
     strcpy(D, "polygon(-5,12)");
     a = 0;
-x = Str(D);
+    x = Str(D);
     ASSERT_EQUAL(x, a);
 
     strcpy(D, "polygon(-3,-3,-3,3,3,3,3,-3)");
     a = 0;
-x = Str(D);
+    x = Str(D);
     ASSERT_EQUAL(x, a);
 
     strcpy(D, "polygon(0,-3,3,3,0,3,-5,3)");
     a = 4;
-x = Str(D);
+    x = Str(D);
     ASSERT_EQUAL(x, a);
 }
 

@@ -4,7 +4,7 @@ SE=build/
 SS=bin/
 TT=test/
 
-$(SS)all: folder1 folder2 $(SS)start $(SS)test
+$(SS)all: folder1 folder2 $(SS)start
 
 $(SS)start: $(SE)figures.o $(SE)geo.o $(SE)intersect.o $(SE)Str.o
 	$(CC) $(SE)figures.o $(SE)geo.o $(SE)intersect.o $(SE)Str.o -o $(SS)start
