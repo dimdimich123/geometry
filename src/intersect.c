@@ -4,11 +4,15 @@
 
 int SectCC(int x1, int u1, int r1, int x2, int u2, int r2)
 {
+    int t;
+    if (r1 > r2) {
+        t = r1;
+        r1 = r2;
+        r2 = t;
+    }
     float nm;
-    if (x1 == x2 && u1 == u2 && r1 == r2)
-        return 0;
     nm = sqrt(pow(x2 - x1, 2) + pow(u2 - u1, 2));
-    if (nm <= r1 + r2)
+    if ((nm <= r1 + r2) && (r2 <= r1 + nm))
         return 1;
     return 0;
 }
